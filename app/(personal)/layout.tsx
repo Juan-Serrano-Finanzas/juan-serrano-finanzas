@@ -8,7 +8,7 @@ import { ReactNode, Suspense } from 'react'
 
 import { Footer } from '@/components/global/footer'
 import { Navbar } from '@/components/global/navbar'
-import { urlForOpenGraphImage } from '@/sanity/lib/utils'
+// // import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 
 const LiveVisualEditing = dynamic(
@@ -21,7 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
     loadHomePage()
   ])
 
-  const ogImage = urlForOpenGraphImage(settings?.ogImage)
+  // // const ogImage = urlForOpenGraphImage(settings?.ogImage)
+
   return {
     title: homePage?.title
       ? {
@@ -29,11 +30,53 @@ export async function generateMetadata(): Promise<Metadata> {
           default: homePage.title || 'Juan Serrano Finanzas'
         }
       : undefined,
+    openGraph: {
+      title: 'Juan Serrano Finanzas',
+      description: 'Economía y finanzas.',
+      url: 'https://juanserranofinanzas.com',
+      siteName: 'Juan Serrano Finanzas',
+      images: [
+        {
+          url: 'https://juanserranofinanzas.com/images/og.png',
+          width: 1200,
+          height: 630
+        }
+      ],
+      locale: 'es-ES',
+      type: 'website'
+    },
     description: homePage?.overview
       ? toPlainText(homePage.overview)
       : undefined,
-    openGraph: {
-      images: ogImage ? [ogImage] : []
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1
+      }
+    },
+    twitter: {
+      title: 'My Exit',
+      site: 'My Exit',
+      card: 'summary_large_image',
+      description: 'Economía  y finanzas.',
+      images: [
+        {
+          url: 'https://juanserranofinanzas.com/images/og.png',
+          alt: 'Juan Serrano Finanzas',
+          width: 1200,
+          height: 630
+        }
+      ]
+    },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/favicon/apple-icon.png'
     }
   }
 }
