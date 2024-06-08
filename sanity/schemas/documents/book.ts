@@ -11,7 +11,7 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      description: 'Este input es el título de tu libro.',
+      description: 'Título del libro.',
       title: 'Título',
       type: 'string',
       validation: rule => rule.required()
@@ -19,6 +19,8 @@ export default defineType({
     defineField({
       name: 'slug',
       title: 'Slug',
+      description:
+        'Slug para la URL del libro. Presiona generate para autogenerar basado en el título del libro. De ser posible, no cambiar (afecta el SEO).',
       type: 'slug',
       options: {
         source: 'title',
@@ -29,9 +31,9 @@ export default defineType({
     }),
     defineField({
       name: 'summary',
-      description:
-        'Used both for the <meta> description tag for SEO, and book subheader.',
       title: 'Resumen',
+      description:
+        'Pequeño sumario del libro (dos o tres líneas). Usado para la tag <meta> description de SEO, y como subheader card del libro en la página de inicio.',
       type: 'array',
       of: [
         // Paragraphs
@@ -60,7 +62,7 @@ export default defineType({
       name: 'coverImage',
       title: 'Foto portada',
       description:
-        'La imagen será usada como la portada del libro. If you choose to add it to the show case projects, this is the image displayed in the list within the homepage.',
+        'Foto de portada del libro. Preferiblemente en formato 3:4 (1200x1600) y archivo WebP.',
       type: 'image',
       options: {
         hotspot: true
@@ -71,11 +73,13 @@ export default defineType({
     defineField({
       name: 'year',
       title: 'Año',
+      description: 'Año de publicación del libro.',
       type: 'number'
     }),
     defineField({
       name: 'buyLink',
       title: 'Link de Compra',
+      description: 'Link en formato url donde se puede comprar el libro.',
       type: 'url'
     }),
     defineField({
@@ -89,7 +93,9 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      title: 'Descripción del libro',
+      title: 'Descripción',
+      description:
+        'Descripción completa del libro. Usado en la página de detalle del libro.',
       type: 'array',
       of: [
         defineArrayMember({

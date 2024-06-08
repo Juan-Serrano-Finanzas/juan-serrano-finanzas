@@ -14,6 +14,11 @@ import {
 } from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 import { BookPayload } from '@/types'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { PortableTextBlock } from 'next-sanity'
+import { BadgeDollarSignIcon, BadgeEuroIcon } from 'lucide-react'
+import Image from 'next/image'
+import { urlForImage } from '@/sanity/lib/utils'
 
 interface NavProps {
   books: BookPayload[]
@@ -32,15 +37,28 @@ export const Nav = ({ books }: NavProps) => {
                 <li key={book.id} className='col-span-1'>
                   <NavigationMenuLink asChild>
                     <a
-                      className='flex size-full select-none flex-col justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                      className='flex size-full select-none flex-col justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 text-center no-underline outline-none focus:shadow-md'
                       href={`/libros/${book.slug}`}
                     >
                       <h4 className='mb-2 mt-4 font-serif text-lg'>
                         {book.title}
                       </h4>
-                      {/* <p className='text-sm leading-tight text-muted-foreground'>
-                        {book.summary}
-                      </p> */}
+                      <Image
+                        alt={`Portada del libro ${book?.title}`}
+                        src={
+                          book?.coverImage
+                            ? // @ts-expect-error fix this
+                              urlForImage(book?.coverImage)
+                                .width(1200)
+                                .height(1600)
+                                .fit('crop')
+                                .url()
+                            : ''
+                        }
+                        width={1200}
+                        height={1600}
+                        className='rounded bg-stone-200 object-cover shadow'
+                      />
                     </a>
                   </NavigationMenuLink>
                 </li>
@@ -55,30 +73,26 @@ export const Nav = ({ books }: NavProps) => {
               <li className='col-span-1'>
                 <NavigationMenuLink asChild>
                   <a
-                    className='flex size-full select-none flex-col justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                    className='flex size-full select-none flex-col items-center justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
                     href={`/mercados-de-acciones/bolsa-espanola`}
                   >
-                    <h4 className='mb-2 mt-4 font-serif text-lg'>
+                    <BadgeEuroIcon className='size-6 stroke-stone-700' />
+                    <h4 className='mb-2 mt-4 text-center font-serif text-lg'>
                       {`Bolsa Española`}
                     </h4>
-                    {/* <p className='text-sm leading-tight text-muted-foreground'>
-                        {market.summary}
-                      </p> */}
                   </a>
                 </NavigationMenuLink>
               </li>
               <li className='col-span-1'>
                 <NavigationMenuLink asChild>
                   <a
-                    className='flex size-full select-none flex-col justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
+                    className='flex size-full select-none flex-col items-center justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
                     href={`/mercados-de-acciones/bolsa-internacional`}
                   >
-                    <h4 className='mb-2 mt-4 font-serif text-lg'>
+                    <BadgeDollarSignIcon className='size-6 stroke-stone-700' />
+                    <h4 className='mb-2 mt-4 text-center font-serif text-lg'>
                       {`Bolsa Internacional`}
                     </h4>
-                    {/* <p className='text-sm leading-tight text-muted-foreground'>
-                        {market.summary}
-                      </p> */}
                   </a>
                 </NavigationMenuLink>
               </li>
