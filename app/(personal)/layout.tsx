@@ -60,8 +60,8 @@ export async function generateMetadata(): Promise<Metadata> {
       }
     },
     twitter: {
-      title: 'My Exit',
-      site: 'My Exit',
+      title: 'Juan Serrano Finanzas',
+      site: 'Juan Serrano Finanzas',
       card: 'summary_large_image',
       description: 'Economía  y finanzas.',
       images: [
@@ -97,7 +97,9 @@ export default async function IndexRoute({
           <Navbar />
         </Suspense>
         <div className='mt-20 grow px-4 md:px-16 lg:px-32'>
-          <Suspense>{children}</Suspense>
+          <Suspense>
+            <main>{children}</main>
+          </Suspense>
         </div>
         <Suspense>
           <Footer />
