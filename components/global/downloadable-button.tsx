@@ -18,7 +18,11 @@ interface DonwloadableButtonProps {
 export const DownloadableButton = ({ file }: DonwloadableButtonProps) => {
   return (
     <li>
-      <a href={`${file}?dl=`} className='col-span-1 flex rounded-md shadow-sm'>
+      <a
+        href={file.url}
+        download
+        className='col-span-1 flex rounded-md shadow-sm'
+      >
         <div
           className={cn(
             'flex w-16 shrink-0 items-center justify-center rounded-l-md bg-stone-700 text-sm font-medium text-white',
@@ -39,7 +43,6 @@ export const DownloadableButton = ({ file }: DonwloadableButtonProps) => {
             'Doc'
           )}
         </div>
-
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger className='w-full rounded-r-md border-y border-r border-stone-200 bg-white'>
