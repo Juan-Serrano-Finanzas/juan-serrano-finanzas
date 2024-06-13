@@ -60,21 +60,21 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
             <CustomPortableText value={description as PortableTextBlock[]} />
           </div>
         </div>
-
-        {downloadables && downloadables.length > 0 && (
-          <section className='mt-16'>
-            <Badge variant='outline'>{`Descargables`}</Badge>
-            <ul
-              role='list'
-              className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4'
-            >
-              {downloadables?.map(file => (
-                <DownloadableButton key={file.url} file={file} />
-              ))}
-            </ul>
-          </section>
-        )}
       </div>
+
+      {downloadables && downloadables.length > 0 && (
+        <section className='mt-16'>
+          <Badge variant='outline'>{`Descargables`}</Badge>
+          <ul
+            role='list'
+            className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4'
+          >
+            {downloadables?.map(file => (
+              <DownloadableButton key={file.url} file={file} />
+            ))}
+          </ul>
+        </section>
+      )}
     </MaxWidthWrapper>
   )
 }
