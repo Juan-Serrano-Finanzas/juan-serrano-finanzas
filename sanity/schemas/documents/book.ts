@@ -153,6 +153,16 @@ export default defineType({
         // //   ],
         // // }),
       ]
+    }),
+    defineField({
+      name: 'downloadables',
+      title: 'Archivos descargables',
+      type: 'array',
+      of: [
+        {
+          type: 'downloadable'
+        }
+      ]
     })
   ]
 })

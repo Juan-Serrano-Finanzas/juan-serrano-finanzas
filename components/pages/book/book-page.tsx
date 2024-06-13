@@ -11,6 +11,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { BookPayload } from '@/types'
+import { DownloadableButton } from '@/components/global/downloadable-button'
 
 export interface BookPageProps {
   data: BookPayload | null
@@ -19,7 +20,8 @@ export interface BookPageProps {
 
 export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
   // Default to an empty object to allow previews on non-existent documents
-  const { title, year, buyLink, description, coverImage } = data ?? {}
+  const { title, year, buyLink, description, coverImage, downloadables } =
+    data ?? {}
 
   return (
     <MaxWidthWrapper className='py-16'>
@@ -58,6 +60,20 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
             <CustomPortableText value={description as PortableTextBlock[]} />
           </div>
         </div>
+
+        {downloadables && downloadables.length > 0 && (
+          <section className='mt-16'>
+            <Badge variant='outline'>{`Descargables`}</Badge>
+            <ul
+              role='list'
+              className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4'
+            >
+              {downloadables?.map(file => (
+                <DownloadableButton key={file.url} file={file} />
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </MaxWidthWrapper>
   )

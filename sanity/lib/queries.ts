@@ -115,6 +115,10 @@ export const bookBySlugQuery = groq`
     coverImage,
     year,
     buyLink,
-    description
+    description,
+    "downloadables": downloadables[]{
+      "title": title,
+      "url": file.asset->url
+    }
   }
 `

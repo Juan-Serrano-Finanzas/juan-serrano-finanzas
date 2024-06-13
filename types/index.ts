@@ -44,6 +44,7 @@ export interface BookPayload {
   year: number
   buyLink: string
   description: PortableTextBlock[]
+  downloadables?: File[]
 }
 
 export interface HomePagePayload {
