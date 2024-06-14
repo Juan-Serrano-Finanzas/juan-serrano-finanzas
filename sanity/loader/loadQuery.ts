@@ -5,23 +5,23 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
+  articleBySlugQuery,
+  articlesPageQuery,
   bookBySlugQuery,
   financePageQuery,
   homePageQuery,
   internationalStockMarketPageQuery,
-  pagesBySlugQuery,
-  projectBySlugQuery,
   settingsQuery,
   spanishStockMarketPageQuery
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
+  ArticlePayload,
+  ArticlesPagePayload,
   BookPayload,
   FinancePagePayload,
   HomePagePayload,
   InternationalStockMarketPagePayload,
-  PagePayload,
-  ProjectPayload,
   SettingsPayload,
   SpanishStockMarketPagePayload
 } from '@/types'
@@ -109,14 +109,6 @@ export function loadSpanishStockMarketPage() {
   )
 }
 
-export function loadProject(slug: string) {
-  return loadQuery<ProjectPayload | null>(
-    projectBySlugQuery,
-    { slug },
-    { next: { tags: [`project:${slug}`] } }
-  )
-}
-
 export function loadBook(slug: string) {
   return loadQuery<BookPayload | null>(
     bookBySlugQuery,
@@ -125,10 +117,18 @@ export function loadBook(slug: string) {
   )
 }
 
-export function loadPage(slug: string) {
-  return loadQuery<PagePayload | null>(
-    pagesBySlugQuery,
+export function loadArticlesPage() {
+  return loadQuery<ArticlesPagePayload | null>(
+    articlesPageQuery,
+    {},
+    { next: { tags: [`articles`] } }
+  )
+}
+
+export function loadArticle(slug: string) {
+  return loadQuery<ArticlePayload | null>(
+    articleBySlugQuery,
     { slug },
-    { next: { tags: [`page:${slug}`] } }
+    { next: { tags: [`article:${slug}`] } }
   )
 }

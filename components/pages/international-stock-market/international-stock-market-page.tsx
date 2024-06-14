@@ -1,7 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { PortableTextBlock } from 'next-sanity'
 
-import { DownloadableButton } from '@/components/global/downloadable-button'
+import { DownloadableCard } from '@/components/global/downloadable-card'
 import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -37,7 +37,7 @@ export const InternationalStockMarketPage = ({
             className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4'
           >
             {downloadables?.map(file => (
-              <DownloadableButton key={file.url} file={file} />
+              <DownloadableCard key={file.url} file={file} />
             ))}
           </ul>
         </section>

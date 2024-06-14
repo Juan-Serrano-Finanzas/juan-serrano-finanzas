@@ -19,7 +19,7 @@ export interface HomePageProps {
 
 export const HomePage = ({ data, encodeDataAttribute }: HomePageProps) => {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], books = [], bio = {}, title = '' } = data ?? {}
+  const { books = [], bio = {} } = data ?? {}
 
   return (
     <div className='space-y-20'>

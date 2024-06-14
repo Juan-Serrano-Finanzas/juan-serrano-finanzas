@@ -1,11 +1,11 @@
-import { CoinsIcon } from 'lucide-react'
+import { EuroIcon } from 'lucide-react'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'marketSpanish',
   title: 'Bolsa Española',
   type: 'document',
-  icon: CoinsIcon,
+  icon: EuroIcon,
   fields: [
     defineField({
       name: 'title',

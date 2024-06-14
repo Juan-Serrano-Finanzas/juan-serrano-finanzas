@@ -10,7 +10,7 @@ const HomePagePreview = dynamic(
   () => import('@/components/pages/home/home-page-preview')
 )
 
-export default async function IndexRoute() {
+export default async function HomePageRoute() {
   const initial = await loadHomePage()
 
   if (draftMode().isEnabled) {

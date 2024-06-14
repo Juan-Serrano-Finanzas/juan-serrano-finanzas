@@ -100,9 +100,9 @@ export const Nav = ({ books }: NavProps) => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href='/divulgacion-financiera' legacyBehavior passHref>
+          <Link href='/articulos' legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              {`Divulgación Financiera`}
+              {`Artículos`}
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

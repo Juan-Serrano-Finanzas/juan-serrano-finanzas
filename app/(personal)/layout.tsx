@@ -3,33 +3,21 @@ import '@/styles/index.css'
 import type { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
-import { toPlainText } from 'next-sanity'
 import { ReactNode, Suspense } from 'react'
 
-import { Footer } from '@/components/global/footer'
 import { Navbar } from '@/components/global/navbar'
-// // import { urlForOpenGraphImage } from '@/sanity/lib/utils'
-import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { Footer } from '@/components/global/navbar/footer'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing')
 )
 
 export async function generateMetadata(): Promise<Metadata> {
-  const [{ data: settings }, { data: homePage }] = await Promise.all([
-    loadSettings(),
-    loadHomePage()
-  ])
-
-  // // const ogImage = urlForOpenGraphImage(settings?.ogImage)
-
   return {
-    title: homePage?.title
-      ? {
-          template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Juan Serrano Finanzas'
-        }
-      : undefined,
+    title: {
+      template: `%s | Juan Serrano Finanzas`,
+      default: 'Juan Serrano Finanzas'
+    },
     openGraph: {
       title: 'Juan Serrano Finanzas',
       description: 'Economía y finanzas.',
@@ -45,9 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: 'es-ES',
       type: 'website'
     },
-    description: homePage?.overview
-      ? toPlainText(homePage.overview)
-      : undefined,
+    description: 'Economía y Finanzas',
     robots: {
       index: true,
       follow: true,

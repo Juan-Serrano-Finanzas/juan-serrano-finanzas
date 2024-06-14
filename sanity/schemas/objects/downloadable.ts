@@ -12,6 +12,11 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
+      type: 'text',
+      name: 'summary',
+      title: 'Sumario'
+    }),
+    defineField({
       type: 'file',
       name: 'file',
       title: 'Archivo',

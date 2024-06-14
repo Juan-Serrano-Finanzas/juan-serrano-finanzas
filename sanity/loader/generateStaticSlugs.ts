@@ -13,15 +13,15 @@ export function generateStaticSlugs(type: string) {
       token,
       perspective: 'published',
       useCdn: false,
-      stega: false,
+      stega: false
     })
     .fetch<string[]>(
       groq`*[_type == $type && defined(slug.current)]{"slug": slug.current}`,
       { type },
       {
         next: {
-          tags: [type],
-        },
-      },
+          tags: [type]
+        }
+      }
     )
 }

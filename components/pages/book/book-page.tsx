@@ -11,7 +11,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { BookPayload } from '@/types'
-import { DownloadableButton } from '@/components/global/downloadable-button'
+import { DownloadableCard } from '@/components/global/downloadable-card'
 
 export interface BookPageProps {
   data: BookPayload | null
@@ -65,12 +65,9 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
       {downloadables && downloadables.length > 0 && (
         <section className='mt-16'>
           <Badge variant='outline'>{`Descargables`}</Badge>
-          <ul
-            role='list'
-            className='mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4'
-          >
+          <ul role='list' className='mt-8 flex max-w-2xl flex-col gap-8'>
             {downloadables?.map(file => (
-              <DownloadableButton key={file.url} file={file} />
+              <DownloadableCard key={file.url} file={file} />
             ))}
           </ul>
         </section>

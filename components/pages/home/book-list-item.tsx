@@ -1,5 +1,5 @@
-import ImageBox from '@/components/shared/ImageBox'
 import type { BookPayload } from '@/types'
+import Image from 'next/image'
 
 interface BookProps {
   book: BookPayload
@@ -11,15 +11,25 @@ export function BookListItem(props: BookProps) {
 
   return (
     <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-gray-50/50 xl:flex-row ${
+      className={`flex flex-col gap-x-5 p-2 transition hover:bg-stone-50/50 xl:flex-row ${
         odd && 'border-y xl:flex-row-reverse'
       }`}
     >
-      <div className='w-full xl:w-9/12'>
-        <ImageBox
-          image={book.coverImage}
+      <div className='relative aspect-[16/9]'>
+        <Image
           alt={`Portada del libro ${book.title}`}
-          classesWrapper='relative aspect-[16/9]'
+          src={
+            book.coverImage
+              ? // @ts-expect-error fix this
+                urlForImage(book.coverImage)
+                  .width(900)
+                  .height(1200)
+                  .fit('crop')
+                  .url()
+              : ''
+          }
+          fill
+          className='rounded bg-stone-200 object-cover object-center shadow'
         />
       </div>
       <div className='flex xl:w-1/4'>
@@ -33,23 +43,10 @@ function TextBox({ book }: { book: BookPayload }) {
   return (
     <div className='relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0'>
       <div>
-        {/* Title */}
         <div className='mb-2 text-xl font-extrabold tracking-tight md:text-2xl'>
           {book.title}
         </div>
-        {/* Overview  */}
-        {/* <div className='font-serif text-gray-500'>
-          <CustomPortableText value={book.overview as PortableTextBlock[]} />
-        </div> */}
       </div>
-      {/* Tags */}
-      {/* <div className='mt-4 flex flex-row gap-x-2'>
-        {book.tags?.map((tag, key) => (
-          <div className='text-sm font-medium lowercase md:text-lg' key={key}>
-            #{tag}
-          </div>
-        ))}
-      </div> */}
     </div>
   )
 }
