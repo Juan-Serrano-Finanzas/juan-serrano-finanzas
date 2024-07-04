@@ -6,8 +6,6 @@ export default defineType({
   title: 'Libro',
   type: 'document',
   icon: BookIcon,
-  // Uncomment below to have edits publish automatically as you type
-  // liveEdit: true,
   fields: [
     defineField({
       name: 'title',
@@ -28,6 +26,13 @@ export default defineType({
         isUnique: (value, context) => context.defaultIsUnique(value, context)
       },
       validation: rule => rule.required()
+    }),
+    defineField({
+      name: 'abstract',
+      title: 'Extracto',
+      description:
+        'Extracto del libro. Usado en la página de inicio como descripción del libro.',
+      type: 'text'
     }),
     defineField({
       name: 'summary',
@@ -163,6 +168,66 @@ export default defineType({
           type: 'downloadable'
         }
       ]
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      description: 'SEO metadata del libro.',
+      type: 'object',
+      fields: [
+        {
+          name: 'metaTitle',
+          title: 'Meta Título',
+          description: 'Título para SEO del libro.',
+          type: 'string'
+        },
+        {
+          name: 'metaDescription',
+          title: 'Meta Description',
+          description: 'Descripción para SEO del libro.',
+          type: 'string'
+        },
+        {
+          name: 'publisher',
+          title: 'Editorial',
+          description: 'Nombre de la editorial del libro.',
+          type: 'string'
+        },
+        {
+          name: 'isbn',
+          title: 'ISBN',
+          description: 'Númer ISBN del libro.',
+          type: 'string'
+        },
+        {
+          name: 'language',
+          title: 'Lenguaje',
+          description: 'Lenguaje del libro.',
+          type: 'string'
+        },
+        {
+          name: 'pages',
+          title: 'Páginas',
+          description: 'Número de páginas del libro.',
+          type: 'number'
+        },
+        {
+          name: 'price',
+          title: 'Precio',
+          description: 'Precio de venta del libro.',
+          type: 'number'
+        }
+      ],
+      options: {
+        collapsible: true,
+        collapsed: true,
+        columns: 2
+      }
     })
   ]
+  // // initialValue: document => ({
+  // //   seo: {
+  // //     metaTitle: document.title
+  // //   }
+  // // })
 })

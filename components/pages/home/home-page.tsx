@@ -37,7 +37,7 @@ export const HomePage = ({ data, encodeDataAttribute }: HomePageProps) => {
               return (
                 <div
                   key={book.id}
-                  className='grid gap-4 rounded bg-stone-50 p-8 md:grid-cols-2'
+                  className='grid gap-4 rounded bg-stone-100 p-8 md:grid-cols-2'
                 >
                   <div className='relative aspect-[3/4] w-full'>
                     <Image

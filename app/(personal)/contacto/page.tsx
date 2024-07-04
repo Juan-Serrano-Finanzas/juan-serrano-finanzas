@@ -1,5 +1,12 @@
 import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contacto',
+  description:
+    'Ponte en contacto con Juan Serrano, experto en economía y finanzas. Consulta sobre análisis económicos, estrategias de inversión y asesoramiento financiero personalizado. ¡Estamos aquí para ayudarte!.'
+}
 
 export default async function ContactRoute() {
   return (

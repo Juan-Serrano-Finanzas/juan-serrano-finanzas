@@ -9,6 +9,15 @@ export interface File {
   summary?: string
 }
 
+interface BookSEO {
+  metaTitle: string
+  metaDescription: string
+  publisher: string
+  isbn: string
+  language: string
+  pages: number
+  price: number
+}
 export interface BookPayload {
   id: string
   title: string
@@ -19,6 +28,7 @@ export interface BookPayload {
   buyLink: string
   description: PortableTextBlock[]
   downloadables?: File[]
+  seo: BookSEO
 }
 
 export interface ArticlePayload {

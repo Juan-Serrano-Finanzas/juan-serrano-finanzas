@@ -18,7 +18,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       description:
-        'Slug para la URL del artículo. Presiona generate para autogenerar basado en el título del artículo. De ser posible, no cambiar (afecta el SEO).',
+        'Slug para la URL del artículo. Presiona generate para autogenerar basado en el título del artículo. De ser posible, no cambiar (afecta el SEO). Si se cambia, no añadir acentos u otros símbolos.',
       type: 'slug',
       options: {
         source: 'title',

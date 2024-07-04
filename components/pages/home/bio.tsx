@@ -16,7 +16,7 @@ export const Bio = async ({ bio }) => {
           </div>
         </div>
         <div className='md:col-span-1'>
-          <div className='h-fit bg-stone-50 p-8'>
+          <div className='h-fit bg-stone-100 p-8'>
             <div className='relative aspect-[4/5]'>
               <Image
                 alt={`El economista y autor ${bio.name}`}

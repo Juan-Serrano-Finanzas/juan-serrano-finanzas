@@ -1,7 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Image from 'next/image'
-import Link from 'next/link'
-import { PortableTextBlock } from 'next-sanity'
+import { PortableTextBlock, toPlainText } from 'next-sanity'
+import { Book, WithContext } from 'schema-dts'
 
 import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
@@ -12,6 +12,8 @@ import { cn } from '@/lib/utils'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { BookPayload } from '@/types'
 import { DownloadableCard } from '@/components/global/downloadable-card'
+import Link from 'next/link'
+import { JsonLd } from '@/components/seo/json-ld'
 
 export interface BookPageProps {
   data: BookPayload | null
@@ -19,59 +21,92 @@ export interface BookPageProps {
 }
 
 export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
-  // Default to an empty object to allow previews on non-existent documents
-  const { title, year, buyLink, description, coverImage, downloadables } =
-    data ?? {}
+  const {
+    title,
+    year,
+    buyLink,
+    summary,
+    description,
+    coverImage,
+    downloadables,
+    seo
+  } = data ?? {}
+
+  const book: WithContext<Book> = {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    name: seo?.metaTitle ?? title,
+    // // description: toPlainText(description as PortableTextBlock[]),
+    description:
+      seo?.metaDescription ?? toPlainText(description as PortableTextBlock[]),
+    abstract:
+      seo?.metaDescription ?? toPlainText(description as PortableTextBlock[]),
+    publisher: seo?.publisher,
+    isbn: seo?.isbn,
+    copyrightYear: year,
+    inLanguage: seo?.language,
+    numberOfPages: seo?.pages,
+    offers: {
+      '@type': 'Offer',
+      price: seo?.price,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: buyLink
+    }
+  }
 
   return (
-    <MaxWidthWrapper className='py-16'>
-      <div className='grid grid-cols-5 gap-x-12'>
-        <div className='col-span-2 h-fit bg-stone-50 p-8'>
-          <div className='relative aspect-[3/4] w-full'>
-            <Image
-              alt={`Portada del libro ${title}`}
-              src={
-                coverImage
-                  ? // @ts-expect-error fix this
-                    urlForImage(coverImage)
-                      .width(900)
-                      .height(1200)
-                      .fit('crop')
-                      .url()
-                  : ''
-              }
-              fill
-              className='rounded bg-stone-200 object-cover object-center shadow'
-            />
+    <>
+      <JsonLd data={book} />
+      <MaxWidthWrapper>
+        <div className='grid grid-cols-5 gap-x-12'>
+          <div className='col-span-2 h-fit bg-stone-100 p-8'>
+            <div className='relative aspect-[3/4] w-full'>
+              <Image
+                alt={`Portada del libro ${title}`}
+                src={
+                  coverImage
+                    ? // @ts-expect-error fix this
+                      urlForImage(coverImage)
+                        .width(900)
+                        .height(1200)
+                        .fit('crop')
+                        .url()
+                    : ''
+                }
+                fill
+                className='rounded bg-stone-200 object-cover object-center shadow'
+              />
+            </div>
+          </div>
+          <div className='col-span-3'>
+            <Badge variant='outline'>{year}</Badge>
+            <PageHeading className='mt-4'>{title}</PageHeading>
+            <Link
+              href={buyLink ?? '/'}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={cn(buttonVariants({ variant: 'default' }), 'mt-4')}
+            >
+              {`Comprar`}
+            </Link>
+            <div className='prose-sm md:prose mt-8'>
+              <CustomPortableText value={description as PortableTextBlock[]} />
+            </div>
           </div>
         </div>
-        <div className='col-span-3'>
-          <Badge variant='outline'>{year}</Badge>
-          <PageHeading className='mt-4'>{title}</PageHeading>
-          <Link
-            href={buyLink ?? '/'}
-            target='_blank'
-            rel='noopener noreferrer'
-            className={cn(buttonVariants({ variant: 'default' }), 'mt-4')}
-          >
-            {`Comprar`}
-          </Link>
-          <div className='prose-sm md:prose mt-8'>
-            <CustomPortableText value={description as PortableTextBlock[]} />
-          </div>
-        </div>
-      </div>
 
-      {downloadables && downloadables.length > 0 && (
-        <section className='mt-16'>
-          <Badge variant='outline'>{`Descargables`}</Badge>
-          <ul role='list' className='mt-8 flex max-w-2xl flex-col gap-8'>
-            {downloadables?.map(file => (
-              <DownloadableCard key={file.url} file={file} />
-            ))}
-          </ul>
-        </section>
-      )}
-    </MaxWidthWrapper>
+        {downloadables && downloadables.length > 0 && (
+          <section className='mt-16'>
+            <Badge variant='outline'>{`Descargables`}</Badge>
+            <ul role='list' className='mt-8 flex max-w-2xl flex-col gap-8'>
+              {downloadables?.map(file => (
+                <DownloadableCard key={file.url} file={file} />
+              ))}
+            </ul>
+          </section>
+        )}
+      </MaxWidthWrapper>
+    </>
   )
 }

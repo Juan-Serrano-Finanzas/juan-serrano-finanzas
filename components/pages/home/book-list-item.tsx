@@ -11,7 +11,7 @@ export function BookListItem(props: BookProps) {
 
   return (
     <div
-      className={`flex flex-col gap-x-5 p-2 transition hover:bg-stone-50/50 xl:flex-row ${
+      className={`flex flex-col gap-x-5 p-2 transition hover:bg-stone-100/50 xl:flex-row ${
         odd && 'border-y xl:flex-row-reverse'
       }`}
     >

@@ -13,7 +13,8 @@ const ArticlesPreview = dynamic(
 
 export const metadata: Metadata = {
   title: 'Artículos',
-  description: 'Escritos de economía y finanzas'
+  description:
+    'Explora los artículos de Juan Serrano, experto en economía y finanzas. Lee análisis detallados, consejos de inversión y las últimas tendencias económicas para mejorar tu conocimiento financiero.'
 }
 
 export default async function ArticlesRoute() {
