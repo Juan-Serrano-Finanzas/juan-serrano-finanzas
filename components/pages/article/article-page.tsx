@@ -11,6 +11,7 @@ import { DownloadableCard } from '@/components/global/downloadable-card'
 import { PageHeading } from '@/components/global/page-heading'
 import { format } from 'date-fns'
 import { JsonLd } from '@/components/seo/json-ld'
+import { DownloadableList } from '@/components/global/downloadable-list'
 
 export interface ArticlePageProps {
   data: ArticlePayload | null
@@ -53,14 +54,7 @@ export const ArticlePage = ({
         </div>
 
         {downloadables && downloadables.length > 0 && (
-          <section className='mt-16'>
-            <Badge variant='outline'>{`Descargables`}</Badge>
-            <ul role='list' className='mt-8 flex max-w-2xl flex-col gap-8'>
-              {downloadables?.map(file => (
-                <DownloadableCard key={file.url} file={file} />
-              ))}
-            </ul>
-          </section>
+          <DownloadableList downloadables={downloadables} />
         )}
       </MaxWidthWrapper>
     </>

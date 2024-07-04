@@ -39,7 +39,7 @@ export const DownloadableCard = ({ file }: DonwloadableCardProps) => {
           <h4 className='text-base font-medium text-stone-900'>
             {file?.title ?? 'Archivo descargable'}
           </h4>
-          <p className='text-sm text-stone-600'>{file.summary}</p>
+          <p className='mt-2 text-sm text-stone-600'>{file.summary}</p>
         </div>
       </a>
     </li>

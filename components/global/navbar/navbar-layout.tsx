@@ -11,8 +11,7 @@ interface NavbarProps {
 export const NavbarLayout = (props: NavbarProps) => {
   const { data } = props
   return (
-    // <div className='sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 p-4 backdrop-blur md:px-16 md:py-5 lg:px-32'>
-    <div className='flex h-24 items-center justify-between px-8 md:px-24'>
+    <div className='sticky top-0 z-50 flex h-16 items-center justify-between border-b border-foreground bg-white px-8 md:px-24'>
       <Link href='/'>
         <Wordmark className='w-12' />
       </Link>
