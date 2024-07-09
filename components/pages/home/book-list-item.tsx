@@ -29,7 +29,7 @@ export function BookListItem(props: BookProps) {
               : ''
           }
           fill
-          className='rounded bg-stone-200 object-cover object-center shadow'
+          className='bg-stone-200 object-cover object-center'
         />
       </div>
       <div className='flex xl:w-1/4'>

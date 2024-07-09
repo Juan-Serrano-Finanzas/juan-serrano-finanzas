@@ -53,18 +53,18 @@ export const HomePage = ({ data, encodeDataAttribute }: HomePageProps) => {
                           : ''
                       }
                       fill
-                      className='rounded bg-stone-200 object-cover shadow'
+                      className='bg-stone-200 object-cover object-center'
                     />
                   </div>
                   <div className='flex flex-col justify-between gap-y-4 md:gap-y-0'>
                     <div>
-                      <h2 className='font-serif text-lg font-medium italic leading-tight'>
-                        {book.title}
-                      </h2>
-                      <h3 className='font-serif text-base text-stone-700'>
+                      <h3 className='text-xs font-medium text-stone-500'>
                         {book.year}
                       </h3>
-                      <div className='prose md:prose-lg mt-2'>
+                      <h2 className='mt-2 font-serif text-xl font-medium leading-tight'>
+                        {book.title}
+                      </h2>
+                      <div className='prose md:prose-lg mt-4'>
                         <CustomPortableText
                           value={book.summary as PortableTextBlock[]}
                         />
@@ -81,7 +81,12 @@ export const HomePage = ({ data, encodeDataAttribute }: HomePageProps) => {
                       </a>
                       <Link
                         href={`/libros/${book.slug}`}
-                        className={cn(buttonVariants({ variant: 'secondary' }))}
+                        className={cn(
+                          buttonVariants({
+                            variant: 'outline',
+                            className: 'bg-white hover:bg-stone-50'
+                          })
+                        )}
                       >{`Ver`}</Link>
                     </div>
                   </div>

@@ -75,7 +75,7 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
                     : ''
                 }
                 fill
-                className='rounded bg-stone-200 object-cover object-center shadow'
+                className='bg-stone-200 object-cover object-center'
               />
             </div>
           </div>

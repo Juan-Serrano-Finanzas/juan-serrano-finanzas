@@ -68,7 +68,7 @@ export default async function RootLayout({
       lang='es'
       className={cn('font-sans', neueWorld.variable, untitledSans.variable)}
     >
-      <body>{children}</body>
+      <body className='overflow-hidden'>{children}</body>
     </html>
   )
 }

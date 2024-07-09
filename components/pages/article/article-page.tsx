@@ -48,8 +48,8 @@ export const ArticlePage = ({
             locale: es
           })}
         </Badge>
-        <PageHeading className='mt-8'>{title}</PageHeading>
-        <div className='prose-sm md:prose mt-4 max-w-prose'>
+        <PageHeading className='mt-4'>{title}</PageHeading>
+        <div className='prose md:prose-lg mt-4 max-w-prose'>
           <CustomPortableText value={description as PortableTextBlock[]} />
         </div>
 

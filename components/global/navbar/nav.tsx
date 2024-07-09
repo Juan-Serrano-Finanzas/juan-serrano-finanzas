@@ -14,19 +14,18 @@ import {
 } from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 import { BookPayload } from '@/types'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { PortableTextBlock } from 'next-sanity'
 import { BadgeDollarSignIcon, BadgeEuroIcon } from 'lucide-react'
 import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/utils'
 
 interface NavProps {
   books: BookPayload[]
+  className?: string
 }
 
-export const Nav = ({ books }: NavProps) => {
+export const Nav = ({ books, className }: NavProps) => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className={cn(className)}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>{`Libros`}</NavigationMenuTrigger>
@@ -57,7 +56,7 @@ export const Nav = ({ books }: NavProps) => {
                         }
                         width={1200}
                         height={1600}
-                        className='rounded bg-stone-200 object-cover shadow'
+                        className='bg-stone-200 object-cover object-center'
                       />
                     </a>
                   </NavigationMenuLink>

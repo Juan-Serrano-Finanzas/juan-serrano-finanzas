@@ -4,6 +4,7 @@ import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
 import type { ArticlesPagePayload } from '@/types'
 import { ArticleCard } from './article-card'
+import PageTagline from '@/components/global/page-tagline'
 
 export interface ArticlesPageProps {
   data: ArticlesPagePayload | null
@@ -17,13 +18,10 @@ export const ArticlesPage = ({
   const { articles = [] } = data ?? {}
   return (
     <MaxWidthWrapper>
-      <PageHeading>{`Artículos`}</PageHeading>
-
-      <section className='mt-8'>
-        <div className='prose-sm md:prose max-w-prose'>
-          <p>{`Aquí presentaremos escritos sobre economía y finanzas`}</p>
-        </div>
-      </section>
+      <div>
+        <PageHeading>{`Artículos`}</PageHeading>
+        <PageTagline>{`Descubre análisis profundos, consejos expertos y las últimas tendencias en economía, inversiones y mercados. Mantente informado y toma decisiones inteligentes para tu futuro financiero.`}</PageTagline>
+      </div>
 
       {articles && articles.length > 0 && (
         <section className='mt-16 max-w-2xl'>

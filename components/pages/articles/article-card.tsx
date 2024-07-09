@@ -9,7 +9,7 @@ export const ArticleCard = ({ slug, date, title, summary }) => {
   return (
     <Link
       href={`/articulos/${slug}`}
-      className='group rounded-2xl border bg-white px-6 py-8 transition duration-300 ease-linear hover:bg-stone-100'
+      className='group rounded-md border bg-white px-6 py-8 transition duration-300 ease-linear hover:bg-stone-100'
     >
       <div className='flex flex-col'>
         <div className='col-span-1 border-l-2 border-stone-500 pl-4 text-sm font-medium text-stone-500'>
