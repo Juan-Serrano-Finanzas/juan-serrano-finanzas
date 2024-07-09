@@ -24,7 +24,7 @@ export const NavbarLayout = (props: NavbarProps) => {
   }
 
   return (
-    <div className='sticky top-0 z-50 flex h-16 items-center justify-between border-b border-foreground bg-white px-4 md:px-24'>
+    <div className='sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-white px-4 shadow-sm md:px-24'>
       <Link href='/'>
         <Wordmark className='w-10 md:w-12' />
       </Link>
