@@ -7,6 +7,8 @@ import { ReactNode, Suspense } from 'react'
 
 import { Navbar } from '@/components/global/navbar'
 import { Footer } from '@/components/global/navbar/footer'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing')
@@ -78,6 +80,8 @@ export default async function IndexRoute({
 }) {
   return (
     <>
+      <Analytics />
+      <SpeedInsights />
       <div className='flex min-h-screen flex-col bg-white text-black'>
         <Suspense>
           <Navbar />
