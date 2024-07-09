@@ -95,7 +95,7 @@ export const MobileNav = ({
   return (
     <motion.div
       className={cn(
-        'fixed inset-0 flex h-screen items-center justify-center bg-zinc-900'
+        'fixed inset-0 flex h-screen items-center justify-center bg-stone-900'
       )}
       variants={modalVariants}
       initial='hidden'
