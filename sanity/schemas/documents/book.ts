@@ -214,7 +214,7 @@ export default defineType({
           name: 'isbn',
           title: 'ISBN',
           description: 'Código ISB del libro.',
-          type: 'number'
+          type: 'string'
         },
         {
           name: 'price',

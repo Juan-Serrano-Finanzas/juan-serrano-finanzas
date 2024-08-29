@@ -34,10 +34,10 @@ export const BookCard = ({ book }) => {
             {book.title}
           </h2>
           <div className='mt-4 flex flex-col divide-y'>
-            <h3 className='py-1 text-sm font-medium text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm font-medium text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm font-medium text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm font-medium text-stone-500'>{`Published ${book.year}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
           </div>
         </div>
         <div className='flex gap-x-4'>
