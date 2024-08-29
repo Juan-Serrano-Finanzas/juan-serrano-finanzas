@@ -9,7 +9,7 @@ interface PageHeadingProps {
 
 export const PageHeading = ({ children, className }: PageHeadingProps) => {
   return (
-    <h1 className={cn('font-serif text-5xl md:text-7xl', className)}>
+    <h1 className={cn('font-serif text-3xl md:text-3xl', className)}>
       {children}
     </h1>
   )

@@ -4,6 +4,49 @@ import localFont from 'next/font/local'
 
 import { cn } from '@/lib/utils'
 
+const editorialOld = localFont({
+  src: [
+    {
+      path: '../public/fonts/editorial-old/ultralight.woff2',
+      weight: '200',
+      style: 'normal'
+    },
+    {
+      path: '../public/fonts/editorial-old/ultralight-italic.woff2',
+      weight: '200',
+      style: 'italic'
+    },
+    {
+      path: '../public/fonts/editorial-old/regular.woff2',
+      weight: '400',
+      style: 'normal'
+    },
+    {
+      path: '../public/fonts/editorial-old/italic.woff2',
+      weight: '400',
+      style: 'italic'
+    },
+    {
+      path: '../public/fonts/editorial-old/ultrabold.woff2',
+      weight: '800',
+      style: 'normal'
+    },
+    {
+      path: '../public/fonts/editorial-old/ultrabold-italic.woff2',
+      weight: '800',
+      style: 'italic'
+    }
+  ],
+  display: 'swap',
+  variable: '--font-editorial-old'
+})
+
+const diatype = localFont({
+  src: '../public/fonts/diatype/variable.woff2',
+  display: 'swap',
+  variable: '--font-diatype'
+})
+
 const neueWorld = localFont({
   src: [
     {
@@ -66,7 +109,13 @@ export default async function RootLayout({
   return (
     <html
       lang='es'
-      className={cn('font-sans', neueWorld.variable, untitledSans.variable)}
+      className={cn(
+        'font-sans',
+        neueWorld.variable,
+        untitledSans.variable,
+        diatype.variable,
+        editorialOld.variable
+      )}
     >
       <body className='overflow-hidden'>{children}</body>
     </html>

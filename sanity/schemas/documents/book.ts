@@ -74,7 +74,6 @@ export default defineType({
       },
       validation: rule => rule.required()
     }),
-
     defineField({
       name: 'year',
       title: 'Año',
@@ -209,6 +208,12 @@ export default defineType({
           name: 'pages',
           title: 'Páginas',
           description: 'Número de páginas del libro.',
+          type: 'number'
+        },
+        {
+          name: 'isbn',
+          title: 'ISBN',
+          description: 'Código ISB del libro.',
           type: 'number'
         },
         {

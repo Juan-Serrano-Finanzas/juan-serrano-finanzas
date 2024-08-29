@@ -20,8 +20,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-untitled-sans)', ...fontFamily.sans],
-        serif: ['var(--font-neue-world)', ...fontFamily.serif]
+        sans: ['var(--font-diatype)', ...fontFamily.sans],
+        serif: ['var(--font-editorial-old)', ...fontFamily.serif]
       },
       colors: {
         border: 'hsl(var(--border))',
