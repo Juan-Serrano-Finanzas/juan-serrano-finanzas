@@ -3,15 +3,20 @@ import { groq } from 'next-sanity'
 export const homePageQuery = groq`
 {
     _id,
-    "books": *[_type == "book"] | order(year desc) {
+    "books": *[_type == "book"] | order(publishedAt desc) {
       _type,
       "id": _id,
       title,
       "slug": slug.current,
       summary,
-      year, 
+      publishedAt,
+      pages,
+      price,
+      isbn,
       coverImage,
-      buyLink
+      buyLink,
+      publishedAt,
+      publisher
     },
     "bio": *[_type == "about"][0] {
       _type,
@@ -82,10 +87,15 @@ export const bookBySlugQuery = groq`
     title,
     "slug": slug.current,
     summary,
+    price,
+    pages,
+    isbn,
     coverImage,
     year,
     buyLink,
     description,
+    publishedAt,
+    publisher,
     "downloadables": downloadables[]{
       "title": title,
       "url": file.asset->url,

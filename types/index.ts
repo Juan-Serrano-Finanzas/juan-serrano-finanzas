@@ -29,6 +29,11 @@ export interface BookPayload {
   description: PortableTextBlock[]
   downloadables?: File[]
   seo: BookSEO
+  pages: number
+  isbn: string
+  price: number
+  publisher: string
+  publishedAt: string
 }
 
 export interface ArticlePayload {

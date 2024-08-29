@@ -1,9 +1,10 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import type { HomePagePayload } from '@/types'
 
-import { Bio } from './bio'
+import { Bio } from '@/components/pages/home/bio'
 import { SectionHeading } from '@/components/global/section-heading'
-import { BookCard } from './book-card'
+import { BookCard } from '@/components/pages/home/book-card'
+import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -15,22 +16,24 @@ export const HomePage = ({ data, encodeDataAttribute }: HomePageProps) => {
   const { books = [], bio = {} } = data ?? {}
 
   return (
-    <div className='space-y-40'>
-      {bio && <Bio bio={bio} />}
-      {books && books.length > 0 && (
-        <section>
-          <SectionHeading>{`Mis libros`}</SectionHeading>
-          <div className='mt-8 flex flex-col gap-y-16'>
-            {books.map(book => {
-              // // const href = resolveHref(book?._type, book?.slug)
-              // // if (!href) {
-              // //   return null
-              // // }
-              return <BookCard key={book.id} book={book} />
-            })}
-          </div>
-        </section>
-      )}
-    </div>
+    <>
+      <MaxWidthWrapper>{bio && <Bio bio={bio} />}</MaxWidthWrapper>
+      <MaxWidthWrapper>
+        {books && books.length > 0 && (
+          <section>
+            <SectionHeading>{`Mis libros`}</SectionHeading>
+            <div className='mt-8 flex flex-col gap-y-16'>
+              {books.map(book => {
+                // // const href = resolveHref(book?._type, book?.slug)
+                // // if (!href) {
+                // //   return null
+                // // }
+                return <BookCard key={book.id} book={book} />
+              })}
+            </div>
+          </section>
+        )}
+      </MaxWidthWrapper>
+    </>
   )
 }

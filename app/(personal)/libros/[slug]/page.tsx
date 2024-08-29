@@ -2,11 +2,12 @@ import type { Metadata, ResolvingMetadata } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
+import { toPlainText } from 'next-sanity'
 
 import { BookPage } from '@/components/pages/book/book-page'
-import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
+
 import { loadBook } from '@/sanity/loader/loadQuery'
-import { toPlainText } from 'next-sanity'
+import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
 
 const BookPreview = dynamic(
   () => import('@/components/pages/book/book-page-preview')

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableTextBlock } from 'next-sanity'
+import { format, parseISO } from 'date-fns'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { buttonVariants } from '@/components/ui/button'
@@ -9,6 +10,7 @@ import { cn } from '@/lib/utils'
 import { urlForImage } from '@/sanity/lib/utils'
 
 export const BookCard = ({ book }) => {
+  console.log(JSON.stringify(book, null, 2))
   return (
     <div key={book.id} className='grid gap-16 md:grid-cols-4'>
       <div className='relative col-span-1 aspect-[3/4] w-full bg-stone-50'>
@@ -34,10 +36,10 @@ export const BookCard = ({ book }) => {
             {book.title}
           </h2>
           <div className='mt-4 flex flex-col divide-y'>
-            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
-            <h3 className='py-1 text-sm text-stone-500'>{`Published ${book.year}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`${book.pages} páginas`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Publicado ${format(parseISO(book.publishedAt), 'd/MM/yyyy')}`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Precio ${book.price.toFixed(2)} €`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`ISBN ${book.isbn}`}</h3>
           </div>
         </div>
         <div className='flex gap-x-4'>
@@ -57,7 +59,7 @@ export const BookCard = ({ book }) => {
                 className: 'bg-white hover:bg-stone-50'
               })
             )}
-          >{`Ver`}</Link>
+          >{`Ver Más`}</Link>
         </div>
       </div>
       <div className='col-span-2 flex flex-col justify-between gap-y-4 md:gap-y-0'>
