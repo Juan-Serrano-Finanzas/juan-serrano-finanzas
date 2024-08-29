@@ -1,12 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-
-import { BookPayload } from '@/types'
-import { List, Basket, Heart, User, X } from '@phosphor-icons/react/dist/ssr'
-import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+import { cn } from '@/lib/utils'
+import { BookPayload } from '@/types'
 
 interface MobileNavProps {
   books: BookPayload[]

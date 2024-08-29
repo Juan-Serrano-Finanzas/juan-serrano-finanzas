@@ -1,14 +1,15 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
+import { AnimatePresence } from 'framer-motion'
+import { List } from '@phosphor-icons/react'
 
 import { Nav } from '@/components/global/navbar/nav'
 import { Wordmark } from '@/components/logos/wordmark'
+import { MobileNav } from '@/components/global/navbar/mobile-nav'
+
 import type { SettingsPayload } from '@/types'
-import { MobileNav } from './mobile-nav'
-import { List } from '@phosphor-icons/react'
-import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 
 interface NavbarProps {
   data: SettingsPayload
