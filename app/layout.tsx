@@ -1,6 +1,7 @@
-import './globals.css'
-
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
+
+import '@/app/globals.css'
 
 import { cn } from '@/lib/utils'
 
@@ -100,6 +101,68 @@ const untitledSans = localFont({
   display: 'swap',
   variable: '--font-untitled-sans'
 })
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: {
+      template: `%s | Juan Serrano Finanzas`,
+      default: 'Juan Serrano Finanzas'
+    },
+    openGraph: {
+      title: 'Juan Serrano Finanzas',
+      description:
+        'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
+      url: 'https://juanserranofinanzas.com',
+      siteName: 'Juan Serrano Finanzas',
+      images: [
+        {
+          url: 'https://juanserranofinanzas.com/images/og.png',
+          width: 1200,
+          height: 630
+        }
+      ],
+      locale: 'es-ES',
+      type: 'website'
+    },
+    description:
+      'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1
+      }
+    },
+    twitter: {
+      title: 'Juan Serrano Finanzas',
+      site: 'Juan Serrano Finanzas',
+      card: 'summary_large_image',
+      description:
+        'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
+      images: [
+        {
+          url: 'https://juanserranofinanzas.com/images/og.png',
+          alt: 'Juan Serrano Finanzas',
+          width: 1200,
+          height: 630
+        }
+      ]
+    },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/favicon/apple-icon.png'
+    }
+  }
+}
+
+export const viewport: Viewport = {
+  themeColor: '#000'
+}
 
 export default async function RootLayout({
   children
