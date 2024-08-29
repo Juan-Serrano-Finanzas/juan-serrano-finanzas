@@ -1,7 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import * as React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { CurrencyDollar, CurrencyEur } from '@phosphor-icons/react/dist/ssr'
 
 import {
   NavigationMenu,
@@ -12,10 +14,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
+
 import { cn } from '@/lib/utils'
 import { BookPayload } from '@/types'
-import { BadgeDollarSignIcon, BadgeEuroIcon } from 'lucide-react'
-import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/utils'
 
 interface NavProps {
@@ -75,7 +76,10 @@ export const Nav = ({ books, className }: NavProps) => {
                     className='flex size-full select-none flex-col items-center justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
                     href={`/mercados-de-acciones/bolsa-espanola`}
                   >
-                    <BadgeEuroIcon className='size-6 stroke-stone-700' />
+                    <CurrencyEur
+                      weight='fill'
+                      className='size-8 stroke-stone-700'
+                    />
                     <h4 className='mb-2 mt-4 text-center font-serif text-lg'>
                       {`Bolsa Española`}
                     </h4>
@@ -88,7 +92,10 @@ export const Nav = ({ books, className }: NavProps) => {
                     className='flex size-full select-none flex-col items-center justify-between rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md'
                     href={`/mercados-de-acciones/bolsa-internacional`}
                   >
-                    <BadgeDollarSignIcon className='size-6 stroke-stone-700' />
+                    <CurrencyDollar
+                      weight='fill'
+                      className='size-8 stroke-stone-700'
+                    />
                     <h4 className='mb-2 mt-4 text-center font-serif text-lg'>
                       {`Bolsa Internacional`}
                     </h4>
