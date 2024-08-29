@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className='flex items-baseline justify-center gap-x-1 md:justify-start'>
             <p>{`Site by `}</p>
             <a
-              href='laam.dev'
+              href='www.laam.dev'
               rel='noopener noreferrer'
               target='_blank'
               className='hover:text-white/90'
