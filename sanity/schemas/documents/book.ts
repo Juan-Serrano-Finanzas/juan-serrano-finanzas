@@ -193,12 +193,6 @@ export default defineType({
           type: 'string'
         },
         {
-          name: 'isbn',
-          title: 'ISBN',
-          description: 'Númer ISBN del libro.',
-          type: 'string'
-        },
-        {
           name: 'language',
           title: 'Lenguaje',
           description: 'Lenguaje del libro.',
