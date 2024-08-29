@@ -28,13 +28,6 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
-      name: 'abstract',
-      title: 'Extracto',
-      description:
-        'Extracto del libro. Usado en la página de inicio como descripción del libro.',
-      type: 'text'
-    }),
-    defineField({
       name: 'summary',
       title: 'Resumen',
       description:
@@ -85,6 +78,36 @@ export default defineType({
       title: 'Link de Compra',
       description: 'Link en formato url donde se puede comprar el libro.',
       type: 'url'
+    }),
+    defineField({
+      name: 'publisher',
+      title: 'Editorial',
+      description: 'Nombre de la editorial del libro.',
+      type: 'string'
+    }),
+    defineField({
+      name: 'language',
+      title: 'Lenguaje',
+      description: 'Lenguaje del libro.',
+      type: 'string'
+    }),
+    defineField({
+      name: 'pages',
+      title: 'Páginas',
+      description: 'Número de páginas del libro.',
+      type: 'number'
+    }),
+    defineField({
+      name: 'isbn',
+      title: 'ISBN',
+      description: 'Código ISB del libro.',
+      type: 'string'
+    }),
+    defineField({
+      name: 'price',
+      title: 'Precio',
+      description: 'Precio de venta del libro.',
+      type: 'number'
     }),
     defineField({
       name: 'tags',
@@ -185,36 +208,6 @@ export default defineType({
           title: 'Meta Description',
           description: 'Descripción para SEO del libro.',
           type: 'string'
-        },
-        {
-          name: 'publisher',
-          title: 'Editorial',
-          description: 'Nombre de la editorial del libro.',
-          type: 'string'
-        },
-        {
-          name: 'language',
-          title: 'Lenguaje',
-          description: 'Lenguaje del libro.',
-          type: 'string'
-        },
-        {
-          name: 'pages',
-          title: 'Páginas',
-          description: 'Número de páginas del libro.',
-          type: 'number'
-        },
-        {
-          name: 'isbn',
-          title: 'ISBN',
-          description: 'Código ISB del libro.',
-          type: 'string'
-        },
-        {
-          name: 'price',
-          title: 'Precio',
-          description: 'Precio de venta del libro.',
-          type: 'number'
         }
       ],
       options: {
