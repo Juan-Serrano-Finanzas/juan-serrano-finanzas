@@ -1,6 +1,9 @@
-import { FileTextIcon, PresentationIcon, SheetIcon } from 'lucide-react'
-
 import { cn } from '@/lib/utils'
+import {
+  FilePdf,
+  MicrosoftExcelLogo,
+  MicrosoftPowerpointLogo
+} from '@phosphor-icons/react/dist/ssr'
 
 interface DonwloadableCardProps {
   file: {
@@ -29,11 +32,11 @@ export const DownloadableCard = ({ file }: DonwloadableCardProps) => {
           )}
         >
           {file.url.endsWith('.pdf') ? (
-            <FileTextIcon className='size-5' aria-hidden='true' />
+            <FilePdf className='size-5' aria-hidden='true' />
           ) : file.url.endsWith('.xlsx') ? (
-            <SheetIcon className='size-5' aria-hidden='true' />
+            <MicrosoftExcelLogo className='size-5' aria-hidden='true' />
           ) : file.url.endsWith('.pptx') ? (
-            <PresentationIcon className='size-5' aria-hidden='true' />
+            <MicrosoftPowerpointLogo className='size-5' aria-hidden='true' />
           ) : (
             'Doc'
           )}

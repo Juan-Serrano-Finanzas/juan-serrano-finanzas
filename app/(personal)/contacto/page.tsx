@@ -1,9 +1,8 @@
+import { Metadata } from 'next'
+
 import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
 import PageTagline from '@/components/global/page-tagline'
-import { Badge } from '@/components/ui/badge'
-import { Metadata } from 'next'
-import { LinkedinLogo, Envelope } from '@phosphor-icons/react/dist/ssr'
 
 export const metadata: Metadata = {
   title: 'Contacto',

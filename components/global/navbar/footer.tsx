@@ -1,9 +1,6 @@
+import { Envelope, LinkedinLogo } from '@phosphor-icons/react/dist/ssr'
+
 import { currentYear } from '@/lib/utils'
-import {
-  Envelope,
-  InstagramLogo,
-  LinkedinLogo
-} from '@phosphor-icons/react/dist/ssr'
 
 export const Footer = () => {
   return (

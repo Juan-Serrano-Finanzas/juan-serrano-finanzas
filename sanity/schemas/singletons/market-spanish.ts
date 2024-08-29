@@ -1,11 +1,11 @@
-import { EuroIcon } from 'lucide-react'
+import { CurrencyEur } from '@phosphor-icons/react/dist/ssr'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'marketSpanish',
   title: 'Bolsa Española',
   type: 'document',
-  icon: EuroIcon,
+  icon: CurrencyEur,
   fields: [
     defineField({
       name: 'title',
