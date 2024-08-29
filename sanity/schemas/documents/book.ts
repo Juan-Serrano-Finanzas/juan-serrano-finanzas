@@ -68,10 +68,10 @@ export default defineType({
       validation: rule => rule.required()
     }),
     defineField({
-      name: 'year',
-      title: 'Año',
-      description: 'Año de publicación del libro.',
-      type: 'number'
+      name: 'publishedAt',
+      title: 'Fecha de Publicación',
+      description: 'Fecha en la que fue publicado el libro.',
+      type: 'date'
     }),
     defineField({
       name: 'buyLink',
