@@ -7,6 +7,7 @@ import { ReactNode, Suspense } from 'react'
 
 import { Navbar } from '@/components/global/navbar'
 import { Footer } from '@/components/global/navbar/footer'
+
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -22,7 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: 'Juan Serrano Finanzas',
-      description: 'Economía y finanzas.',
+      description:
+        'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
       url: 'https://juanserranofinanzas.com',
       siteName: 'Juan Serrano Finanzas',
       images: [
@@ -35,7 +37,8 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: 'es-ES',
       type: 'website'
     },
-    description: 'Economía y Finanzas',
+    description:
+      'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
     robots: {
       index: true,
       follow: true,
@@ -51,7 +54,8 @@ export async function generateMetadata(): Promise<Metadata> {
       title: 'Juan Serrano Finanzas',
       site: 'Juan Serrano Finanzas',
       card: 'summary_large_image',
-      description: 'Economía  y finanzas.',
+      description:
+        'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
       images: [
         {
           url: 'https://juanserranofinanzas.com/images/og.png',
