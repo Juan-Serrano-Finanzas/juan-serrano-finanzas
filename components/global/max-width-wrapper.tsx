@@ -11,10 +11,7 @@ export const MaxWidthWrapper = ({
 }) => {
   return (
     <section
-      className={cn(
-        'mx-auto w-full max-w-screen-2xl px-2 py-4 md:px-16 md:py-8',
-        className
-      )}
+      className={cn('mx-auto w-full max-w-screen-2xl py-4 md:py-8', className)}
     >
       {children}
     </section>

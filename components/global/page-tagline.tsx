@@ -1,9 +1,14 @@
 import { ReactNode } from 'react'
 
+import { cn } from '@/lib/utils'
+
 interface PageTaglineProps {
   children: ReactNode
+  className?: string
 }
 
-export default function PageTagline({ children }: PageTaglineProps) {
-  return <p className='max-w-xl text-xl text-stone-700'>{children}</p>
+export default function PageTagline({ children, className }: PageTaglineProps) {
+  return (
+    <p className={cn('mt-4 max-w-xl text-stone-700', className)}>{children}</p>
+  )
 }

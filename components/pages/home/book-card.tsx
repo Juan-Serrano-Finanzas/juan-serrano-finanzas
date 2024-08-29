@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils'
 import { urlForImage } from '@/sanity/lib/utils'
 
 export const BookCard = ({ book }) => {
-  console.log(JSON.stringify(book, null, 2))
   return (
     <div key={book.id} className='grid gap-16 md:grid-cols-4'>
       <div className='relative col-span-1 aspect-[3/4] w-full bg-stone-50'>
@@ -39,28 +38,18 @@ export const BookCard = ({ book }) => {
             <h3 className='py-1 text-sm text-stone-500'>{`${book.pages} páginas`}</h3>
             <h3 className='py-1 text-sm text-stone-500'>{`Publicado ${format(parseISO(book.publishedAt), 'd/MM/yyyy')}`}</h3>
             <h3 className='py-1 text-sm text-stone-500'>{`Precio ${book.price.toFixed(2)} €`}</h3>
+            <h3 className='py-1 text-sm text-stone-500'>{`Editado por ${book.publisher}`}</h3>
             <h3 className='py-1 text-sm text-stone-500'>{`ISBN ${book.isbn}`}</h3>
           </div>
         </div>
-        <div className='flex gap-x-4'>
-          <a
-            href={book.buyLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            className={cn(buttonVariants({ variant: 'default' }))}
-          >
-            {`Comprar`}
-          </a>
-          <Link
-            href={`/libros/${book.slug}`}
-            className={cn(
-              buttonVariants({
-                variant: 'outline',
-                className: 'bg-white hover:bg-stone-50'
-              })
-            )}
-          >{`Ver Más`}</Link>
-        </div>
+        <Link
+          href={`/libros/${book.slug}`}
+          className={cn(
+            buttonVariants({ variant: 'default', className: 'w-fit' })
+          )}
+        >
+          {`Ver Libro`}
+        </Link>
       </div>
       <div className='col-span-2 flex flex-col justify-between gap-y-4 md:gap-y-0'>
         <div className='prose md:prose-lg mt-4'>

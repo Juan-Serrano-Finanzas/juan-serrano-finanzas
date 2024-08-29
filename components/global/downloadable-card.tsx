@@ -12,11 +12,15 @@ interface DonwloadableCardProps {
 
 export const DownloadableCard = ({ file }: DonwloadableCardProps) => {
   return (
-    <li className='group relative'>
-      <a href={file.url} download className='flex rounded-md shadow-sm'>
+    <li className='group relative w-full'>
+      <a
+        href={file.url}
+        download
+        className='flex flex-col rounded-md shadow-sm md:flex-row'
+      >
         <div
           className={cn(
-            'flex w-16 shrink-0 items-center justify-center rounded-l-md bg-stone-700 text-sm font-medium text-white',
+            'flex w-full shrink-0 items-center justify-center rounded-l-md bg-stone-700 py-2 text-sm font-medium text-white md:w-16 md:py-0',
             {
               'bg-green-700': file.url.endsWith('.xlsx'),
               'bg-red-700': file.url.endsWith('.pptx'),

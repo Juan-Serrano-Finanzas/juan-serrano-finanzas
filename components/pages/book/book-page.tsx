@@ -65,8 +65,8 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
     <>
       <JsonLd data={book} />
       <MaxWidthWrapper>
-        <div className='grid grid-cols-5 gap-x-16'>
-          <div className='col-span-2'>
+        <div className='flex flex-col-reverse gap-y-8 md:grid md:grid-cols-5 md:gap-x-16'>
+          <div className='md:col-span-2'>
             <div className='h-fit bg-stone-100 p-8 md:p-16'>
               <div className='relative aspect-[3/4] w-full'>
                 <Image
@@ -94,7 +94,7 @@ export const BookPage = ({ data, encodeDataAttribute }: BookPageProps) => {
               <h3 className='py-1 text-sm text-stone-500'>{`ISBN ${isbn}`}</h3>
             </div>
           </div>
-          <div className='col-span-3'>
+          <div className='md:col-span-3'>
             <PageHeading>{title}</PageHeading>
             <Link
               href={buyLink ?? '/'}

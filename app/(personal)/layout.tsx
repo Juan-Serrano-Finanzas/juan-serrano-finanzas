@@ -88,7 +88,7 @@ export default async function IndexRoute({
         </Suspense>
         <div className='grow py-4 md:py-8'>
           <Suspense>
-            <main>{children}</main>
+            <main className='px-4 md:px-16'>{children}</main>
           </Suspense>
         </div>
         <Suspense>

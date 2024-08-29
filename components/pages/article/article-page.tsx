@@ -48,15 +48,15 @@ export const ArticlePage = ({
             locale: es
           })}
         </Badge>
-        <PageHeading className='mt-4'>{title}</PageHeading>
+        <PageHeading className='mt-8'>{title}</PageHeading>
         <div className='prose md:prose-lg mt-4 max-w-prose'>
           <CustomPortableText value={description as PortableTextBlock[]} />
         </div>
-
-        {downloadables && downloadables.length > 0 && (
-          <DownloadableList downloadables={downloadables} />
-        )}
       </MaxWidthWrapper>
+
+      {downloadables && downloadables.length > 0 && (
+        <DownloadableList downloadables={downloadables} />
+      )}
     </>
   )
 }

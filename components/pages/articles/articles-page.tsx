@@ -1,10 +1,10 @@
-import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-
 import { MaxWidthWrapper } from '@/components/global/max-width-wrapper'
 import { PageHeading } from '@/components/global/page-heading'
-import type { ArticlesPagePayload } from '@/types'
-import { ArticleCard } from './article-card'
+import { ArticleCard } from '@/components/pages/articles/article-card'
 import PageTagline from '@/components/global/page-tagline'
+
+import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import type { ArticlesPagePayload } from '@/types'
 
 export interface ArticlesPageProps {
   data: ArticlesPagePayload | null

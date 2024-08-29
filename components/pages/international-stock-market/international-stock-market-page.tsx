@@ -21,18 +21,18 @@ export const InternationalStockMarketPage = ({
   const { title = '', description = '', downloadables = [] } = data ?? {}
 
   return (
-    <MaxWidthWrapper>
-      <PageHeading>{title}</PageHeading>
+    <>
+      <MaxWidthWrapper>
+        <PageHeading>{title}</PageHeading>
 
-      <section className='mt-8'>
-        <div className='prose-sm md:prose max-w-prose'>
+        <div className='prose-sm md:prose mt-4 max-w-prose'>
           <CustomPortableText value={description as PortableTextBlock[]} />
         </div>
-      </section>
+      </MaxWidthWrapper>
 
       {downloadables && downloadables.length > 0 && (
         <DownloadableList downloadables={downloadables} />
       )}
-    </MaxWidthWrapper>
+    </>
   )
 }
