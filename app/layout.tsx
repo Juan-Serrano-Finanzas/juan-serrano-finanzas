@@ -116,7 +116,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'Juan Serrano Finanzas',
       images: [
         {
-          url: 'https://juanserranofinanzas.com/images/og.png',
+          url: 'https://juanserranofinanzas.com/og.png',
           width: 1200,
           height: 630
         }
@@ -142,10 +142,10 @@ export async function generateMetadata(): Promise<Metadata> {
       site: 'Juan Serrano Finanzas',
       card: 'summary_large_image',
       description:
-        'Web divulgativa del reconocido economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
+        'Web divulgativa del economista Juan Serrano B. García. En ella encontraras numerosos escritos y recursos informativos centrados alrededor del mundo de las finanzas y los mercados.',
       images: [
         {
-          url: 'https://juanserranofinanzas.com/images/og.png',
+          url: 'https://juanserranofinanzas.com/og.png',
           alt: 'Juan Serrano Finanzas',
           width: 1200,
           height: 630
