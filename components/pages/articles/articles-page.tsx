@@ -20,7 +20,7 @@ export const ArticlesPage = ({
     <MaxWidthWrapper>
       <div>
         <PageHeading>{`Artículos`}</PageHeading>
-        <PageTagline>{`Descubre análisis profundos, consejos expertos y las últimas tendencias en economía, inversiones y mercados. Mantente informado y toma decisiones inteligentes para tu futuro financiero.`}</PageTagline>
+        <PageTagline>{`Análisis y tendencias de la economía y de la bolsa. Infórmate y toma decisiones financieras fundamentadas.`}</PageTagline>
       </div>
 
       {articles && articles.length > 0 && (
