@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { X } from '@phosphor-icons/react'
 
 import { cn } from '@/lib/utils'
 import { BookPayload } from '@/types'
